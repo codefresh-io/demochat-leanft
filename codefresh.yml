@@ -10,7 +10,7 @@
 
     run-leanft-test:
       fail-fast: false
-      image: "verchol/demochat_ft:maste"
+      image: "verchol/demochat_ft:master"
 
     composition-step:
       type: composition
