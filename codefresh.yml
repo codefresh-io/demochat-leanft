@@ -30,4 +30,4 @@
         test:
           depends_on :
             - mongo
-          image : razielt/demochat_ft:master
+          image : verchol/demochat_ft:master
