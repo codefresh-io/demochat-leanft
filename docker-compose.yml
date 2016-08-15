@@ -1,9 +1,8 @@
 version: '2'
 services:
   web:
-    build: .
+    image: verchol/demochat-hpe:latest
     ports:
       - 5000:5000
   mongo:
     image: mongo
-

@@ -5,7 +5,7 @@
       type: "build"
       fail-fast: false
       dockerfile: "Dockerfile"
-      image-name: "hpdemo/demochatleanft"
+      image-name: "verchonl/demochat-hpe"
       tag: "latest"
 
     #run-leanft-test:
