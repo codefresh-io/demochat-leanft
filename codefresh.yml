@@ -14,7 +14,7 @@
 
     composition-step:
       type: composition
-      composition: docker-compose.yaml
+      composition: docker-compose.yml
       composition-candidates:
         test:
           image: "tutum/curl"
