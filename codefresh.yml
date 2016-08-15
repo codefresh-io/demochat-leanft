@@ -1,3 +1,4 @@
+#yalm flow
   version: "1.0"
   steps:
     aut-build-step:
@@ -21,7 +22,7 @@
       composition: test-compo
       composition-candidates:
         web:
-          image: verchol/demochatleanft
+          image: hpdemo/demochatleanft:master
           ports :
            - 5000
         mongo:
