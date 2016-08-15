@@ -15,14 +15,18 @@
     composition-step:
       type: composition
       composition: test-compo
-      composition-candidates:
         web:
+          container_name : web
           image: hpdemo/demochatleanft:master
           ports :
            - 5000
         mongo:
           image: mongo
+      composition-candidates:
         test:
+          image:tutum/curl
+          links :
+            - web:aut
           depends_on :
             - mongo
-          image : verchol/demochat_ft:master
+          command: curl aut:5000  
