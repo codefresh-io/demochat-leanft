@@ -10,7 +10,7 @@
 
     push-prj:
       type: push
-      candidate: "verchol/demochat-hpe"
+      candidate: ${{aut-build-step}}
       tag: latest
       fail-fast: false
 
