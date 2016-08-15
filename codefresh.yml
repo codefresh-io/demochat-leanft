@@ -10,12 +10,7 @@
 
     run-leanft-test:
       fail-fast: false
-      image: "razielt/demochat_ft:master"
-      commands:
-        - "npm install -g better-npm-run"
-        - "npm install -g mocha"
-        - "npm install"
-        - "npm test"
+      image: "verchol/demochat_ft:maste"
 
     composition-step:
       type: composition
