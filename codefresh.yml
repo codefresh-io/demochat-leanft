@@ -5,8 +5,14 @@
       type: "build"
       fail-fast: false
       dockerfile: "Dockerfile"
-      image-name: "verchonl/demochat-hpe"
+      image-name: "verchol/demochat-hpe"
       tag: "latest"
+
+    push-prj:
+      type: push
+      candidate: "verchol/demochat-hpe"
+      tag: latest
+      fail-fast: false
 
     #run-leanft-test:
     #  fail-fast: false
