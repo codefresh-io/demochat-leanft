@@ -1,0 +1,32 @@
+  version: "1.0"
+  steps:
+    aut-build-step:
+      type: "build"
+      fail-fast: false
+      dockerfile: "Dockerfile"
+      image-name: "hpdemo/demochatleanft"
+      tag: "latest"
+
+    run-leanft-test:
+      fail-fast: false
+      image: "razielt/demochat_ft:master"
+      commands:
+        - "npm install -g better-npm-run"
+        - "npm install -g mocha"
+        - "npm install"
+        - "npm test"
+
+    composition-step:
+      type: composition
+      composition: test-compo
+      composition-candidates:
+        web:
+          image: verchol/demochatleanft
+          ports :
+           - 5000
+        mongo:
+          image: mongo
+        test:
+          depends_on :
+            - mongo
+          image : razielt/demochat_ft:master
