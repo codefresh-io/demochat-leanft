@@ -14,19 +14,12 @@
 
     composition-step:
       type: composition
-      composition: test-compo
-        web:
-          container_name : web
-          image: hpdemo/demochatleanft:master
-          ports :
-           - 5000
-        mongo:
-          image: mongo
+      composition: docker-compose.yaml
       composition-candidates:
         test:
-          image:tutum/curl
+          image: "tutum/curl"
           links :
             - web:aut
           depends_on :
             - mongo
-          command: curl aut:5000  
+          command: curl aut:5000
