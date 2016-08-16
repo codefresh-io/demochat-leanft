@@ -28,4 +28,4 @@
             - web:aut
           depends_on :
             - mongo
-          command: curl aut:5000
+          command: curl http://aut:5000
