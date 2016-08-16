@@ -1,4 +1,4 @@
-#yalm flow
+#yalm flow for the demo
   version: "1.0"
   steps:
     aut-build-step:
@@ -44,7 +44,19 @@
       working-directory: ${{initial-clone}}
       volumes:
           - output:/output
-      commands: 
+      commands:
           - sleep 10
           - echo using previous file. printing its content
           - ls /output
+
+      push-to-s3:
+        image: garland/aws-cli-docker:latest
+        working-directory: ${{initial-clone}}
+        commands:
+          - ls
+          - aws s3 cp /output s3://codefresh-demo/
+          - aws s3 ls s3://codefresh-demo/
+        environment:
+          - AWS_ACCESS_KEY_ID=${{AWS_ACCESS_KEY_ID}}
+          - AWS_SECRET_ACCESS_KEY=${{AWS_SECRET_ACCESS_KEY}}
+          - AWS_DEFAULT_REGION=${{AWS_DEFAULT_REGION}}
