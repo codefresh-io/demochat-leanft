@@ -44,7 +44,7 @@
       working-directory: ${{initial-clone}}
       volumes:
           - output:/output
-      commands:
+      commands: 
           - sleep 10
           - echo using previous file. printing its content
           - ls /output
