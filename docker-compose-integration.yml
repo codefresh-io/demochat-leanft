@@ -7,17 +7,5 @@ services:
       - 5000:5000
   mongo:
     image: mongo
-  uft:
-      image: "verchol/demochat_ft:master"
-      links :
-        - web:aut
-      depends_on :
-        - web
+
       #command: sh -c 'sleep 5 && curl http://aut:5000 && echo works ? '
-  test:
-    image: "tutum/curl"
-    links :
-      - web:aut
-    depends_on :
-      - web
-    command: sh -c 'sleep 1000 && curl http://aut:5000 && echo works ? '
