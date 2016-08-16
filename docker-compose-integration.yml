@@ -7,5 +7,7 @@ services:
       - 5000
   mongo:
     image: mongo
-
+volumes:
+  output:
+    external: ${{CF_VOLUME}}
       #command: sh -c 'sleep 5 && curl http://aut:5000 && echo works ? '

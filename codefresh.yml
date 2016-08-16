@@ -25,7 +25,7 @@
           uft:
             image: "verchol/demochat_ft:master"
             volumes:
-                - ${{CF_VOLUME}}:/scripts/RunResults
+                - output:/scripts/RunResults
             links :
                 - web:aut
             depends_on :
