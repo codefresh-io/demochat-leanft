@@ -20,6 +20,7 @@
 
     composition-step:
       type: composition
+      fail-fast: false
       composition: docker-compose-integration.yml
       composition-candidates:
           uft:
@@ -41,6 +42,9 @@
     export-output:
       image: alpine:latest
       working-directory: ${{initial-clone}}
+      volumes:
+          - output:/output
       commands:
+          - sleep 10
           - echo using previous file. printing its content
-          - cat /codefresh/volume/output/myfile.txt
+          - ls /output
