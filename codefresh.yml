@@ -38,9 +38,9 @@
         #     - web
         #   command: sh -c 'sleep 1000 && curl http://aut:5000 && echo works ? '
 
-     export-output:
-           image: alpine:latest
-           working-directory: ${{initial-clone}}
-           commands:
-             - echo using previous file. printing its content
-             - cat /codefresh/volume/myfile.txt
+    export-output:
+      image: alpine:latest
+      working-directory: ${{initial-clone}}
+      commands:
+          - echo using previous file. printing its content
+          - cat /codefresh/volume/myfile.txt
