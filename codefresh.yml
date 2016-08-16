@@ -20,12 +20,12 @@
 
     composition-step:
       type: composition
-      composition: docker-compose.yml
+      composition: docker-compose-integration.yml
       composition-candidates:
         test:
           image: "tutum/curl"
           links :
             - web:aut
           depends_on :
-            - mongo
-          command: curl http://aut:5000
+            - web
+          command: sh -c 'sleep 1000 && curl http://aut:5000 && echo works ? '
