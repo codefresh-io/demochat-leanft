@@ -22,8 +22,8 @@
       type: composition
       composition: docker-compose-integration.yml
       composition-candidates:
-        uft:
-          image: "verchol/demochat_ft:master"
+          uft:
+            image: "verchol/demochat_ft:master"
             volumes:
                 - ${{CF_VOLUME}}:/scripts/RunResults
             links :
