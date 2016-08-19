@@ -1,3 +1,4 @@
+#aut
 version: '2'
 services:
   web:
