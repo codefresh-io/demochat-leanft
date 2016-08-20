@@ -1,0 +1,34 @@
+#aut
+version: "2"
+services:
+  watcher :
+     image: watcher
+     environment:
+        - OUTPUT_DIR=/output
+     volumes:
+      - output:/output
+      - ./output/tmp:/copy
+  tester :
+     image: watcher
+     environment:
+         - OUTPUT_DIR=/output
+     volumes:
+      - output:/output
+  web:
+    container_name: web
+    image: verchol/demochat-hpe:latest
+    ports:
+      - 5000
+  mongo:
+    image: mongo
+  uft:
+    image: "razielt/demochat_ft:master"
+    volumes:
+      - output:/scripts/RunResults
+    links :
+      - web:aut
+    depends_on :
+      - web
+volumes:
+  output:
+    external : true
