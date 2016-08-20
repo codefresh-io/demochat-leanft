@@ -17,20 +17,20 @@
     #run-leanft-test:
     #  fail-fast: false
     #  image: "verchol/demochat_ft:master"
-
-    composition-step:
-      type: composition
-      fail-fast: false
-      composition: docker-compose-integration.yml
-      composition-candidates:
-          uft:
-            image: "razielt/demochat_ft:master"
-            volumes:
-                - output:/scripts/RunResults
-            links :
-                - web:aut
-            depends_on :
-                - web
+    #
+    # composition-step:
+    #   type: composition
+    #   fail-fast: false
+    #   composition: docker-compose-integration.yml
+    #   composition-candidates:
+    #       uft:
+    #         image: "razielt/demochat_ft:master"
+    #         volumes:
+    #             - output:/scripts/RunResults
+    #         links :
+    #             - web:aut
+    #         depends_on :
+    #             - web
         # test:
         #   image: "tutum/curl"
         #   links :
@@ -45,7 +45,7 @@
       volumes:
           - output:/output
       commands:
-          - sleep 10
+          - cp -r . /output
           - echo using previous file. printing its content
           - ls /output
 
@@ -53,7 +53,7 @@
         image: garland/aws-cli-docker:latest
         working-directory: ${{initial-clone}}
         commands:
-          - ls
+          - ls /output
           - aws s3 cp /output s3://codefresh-demo/
           - aws s3 ls s3://codefresh-demo/
         environment:
