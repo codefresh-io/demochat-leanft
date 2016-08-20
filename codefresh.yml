@@ -55,9 +55,9 @@
           - output:/output
       working-directory: ${{initial-clone}}
       commands:
-          - cp ./codefresh.yml /output 
+          - ls .
+          - cp ./codefresh.yml /output
           - echo using previous file. printing its content
-          - ls /output
           - ls /output
           - aws s3 cp /output/codefresh.yml s3://codefresh-demo/
           - aws s3 ls s3://codefresh-demo/
