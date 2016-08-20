@@ -55,11 +55,11 @@
           - output:/output
       working-directory: ${{initial-clone}}
       commands:
-          - cp -r . /output
+          - cp ./codefresh.yml /output/codefresh.yml
           - echo using previous file. printing its content
           - ls /output
           - ls /output
-          - aws s3 cp --recursive /output s3://codefresh-demo/
+          - aws s3 cp /output/codefresh.yml s3://codefresh-demo/
           - aws s3 ls s3://codefresh-demo/
       environment:
           - AWS_ACCESS_KEY_ID=${{AWS_ACCESS_KEY_ID}}
