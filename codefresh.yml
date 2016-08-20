@@ -39,15 +39,15 @@
         #     - web
         #   command: sh -c 'sleep 1000 && curl http://aut:5000 && echo works ? '
 
-    export-output:
-      image: alpine:latest
-      working-directory: ${{initial-clone}}
-      volumes:
-          - output:/output
-      commands:
-          - cp -r . /output
-          - echo using previous file. printing its content
-          - ls /output
+    # export-output:
+    #   image: alpine:latest
+    #   working-directory: ${{initial-clone}}
+    #   volumes:
+    #       - output:/output
+    #   commands:
+    #       - cp -r . /output
+    #       - echo using previous file. printing its content
+    #       - ls /output
 
     push-to-s3:
       image: garland/aws-cli-docker:latest
@@ -55,6 +55,9 @@
           - output:/output
       working-directory: ${{initial-clone}}
       commands:
+          - cp -r . /output
+          - echo using previous file. printing its content
+          - ls /output
           - ls /output
           - aws s3 cp /output s3://codefresh-demo/
           - aws s3 ls s3://codefresh-demo/
