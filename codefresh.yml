@@ -59,7 +59,7 @@
           - echo using previous file. printing its content
           - ls /output
           - ls /output
-          - aws s3 cp /output s3://codefresh-demo/
+          - aws s3 cp --recursive /output s3://codefresh-demo/
           - aws s3 ls s3://codefresh-demo/
       environment:
           - AWS_ACCESS_KEY_ID=${{AWS_ACCESS_KEY_ID}}
