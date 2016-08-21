@@ -51,8 +51,6 @@
 
     push-to-s3:
       image: garland/aws-cli-docker:latest
-      volumes:
-          - ${{CF_VOLUME}}:/output
       working-directory: ${{initial-clone}}
       commands:
           - ls .
