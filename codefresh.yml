@@ -14,9 +14,6 @@
       tag: latest
       fail-fast: false
 
-    run-leanft-test:
-     fail-fast: false
-     image: "verchol/demochat_ft:master"
 
     composition-step:
       type: composition
@@ -54,14 +51,10 @@
       working-directory: ${{initial-clone}}
       commands:
           - ls .
-          - mkdir /output
           - ls /output
-          - cp ./codefresh.yml /output
-          - cat /output/codefresh.yml
-          - echo $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY  $AWS_DEFAULT_REGION
           - echo using previous file. printing its content
           - ls /output
-          - aws s3 cp /scripts/RunResults s3://codefresh-demo/ 
+          - aws s3 cp /scripts/RunResults s3://codefresh-demo/
           - aws s3 ls s3://codefresh-demo/
       environment:
           - AWS_ACCESS_KEY_ID=${{AWS_ACCESS_KEY_ID}}
