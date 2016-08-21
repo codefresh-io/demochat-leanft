@@ -57,6 +57,7 @@
       commands:
           - ls .
           - cp ./codefresh.yml /output
+          - cat /output/codefresh.yml
           - echo $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY  $AWS_DEFAULT_REGION
           - echo using previous file. printing its content
           - ls /output
