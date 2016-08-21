@@ -54,6 +54,7 @@
       working-directory: ${{initial-clone}}
       commands:
           - ls .
+          - mkdir /output
           - ls /output
           - cp ./codefresh.yml /output
           - cat /output/codefresh.yml
