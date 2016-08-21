@@ -61,7 +61,7 @@
           - echo $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY  $AWS_DEFAULT_REGION
           - echo using previous file. printing its content
           - ls /output
-          - aws s3 cp ./codefresh.yml s3://codefresh-demo/
+          #- aws s3 cp ./codefresh.yml s3://codefresh-demo/codefresh.yml
           - aws s3 ls s3://codefresh-demo/
       environment:
           - AWS_ACCESS_KEY_ID=${{AWS_ACCESS_KEY_ID}}
