@@ -14,23 +14,23 @@
       tag: latest
       fail-fast: false
 
-    #run-leanft-test:
-    #  fail-fast: false
-    #  image: "verchol/demochat_ft:master"
-    #
-    # composition-step:
-    #   type: composition
-    #   fail-fast: false
-    #   composition: docker-compose-integration.yml
-    #   composition-candidates:
-    #       uft:
-    #         image: "razielt/demochat_ft:master"
-    #         volumes:
-    #             - output:/scripts/RunResults
-    #         links :
-    #             - web:aut
-    #         depends_on :
-    #             - web
+    run-leanft-test:
+     fail-fast: false
+     image: "verchol/demochat_ft:master"
+
+    composition-step:
+      type: composition
+      fail-fast: false
+      composition: docker-compose-integration.yml
+      composition-candidates:
+          uft:
+            image: "razielt/demochat_ft:master"
+            volumes:
+                - output:/scripts/RunResults
+            links :
+                - web:aut
+            depends_on :
+                - web
         # test:
         #   image: "tutum/curl"
         #   links :
@@ -61,7 +61,7 @@
           - echo $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY  $AWS_DEFAULT_REGION
           - echo using previous file. printing its content
           - ls /output
-          - aws s3 cp ./codefresh.yml s3://codefresh-demo/codefresh.yml
+          - aws s3 cp /scripts/RunResults s3://codefresh-demo/ 
           - aws s3 ls s3://codefresh-demo/
       environment:
           - AWS_ACCESS_KEY_ID=${{AWS_ACCESS_KEY_ID}}
